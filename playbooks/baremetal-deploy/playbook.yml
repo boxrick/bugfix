@@ -1,0 +1,11 @@
+---
+- hosts: host
+  become: yes
+  become_method: sudo
+  pre_tasks:
+    - name: Include our base playbook and run
+      include: ../base-playbooks/general-base2.yml 
+  # These roles will both work here 
+  roles:
+    - { role: working_role }
+    - { role: broken_role }
